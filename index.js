@@ -2,6 +2,7 @@ import expr from 'express'
 import 'dotenv/config';
 import habs from 'express-handlebars'
 import { drizzle } from "drizzle-orm/mysql2";
+import { usersTable } from './db/schema.js';
 const db = drizzle(process.env.DATABASE_URL);
 var x = 1
 var y = Math.random()
@@ -18,11 +19,12 @@ const app = expr()
   .set('views', './views')
   .use(expr.static('static'))
   .use(expr.json())
-  .post('/post', (req, res) => {
+  .post('/post', async (req, res) => {
     console.log(req.body)
     res.send(JSON.stringify({x: ++x, y: rn(2)}))
   })
-  .get('/', (req, res) => {
-    res.render('root', {a: 10, x: x++, y: rn(2)})
+  .get('/', async (req, res) => {
+    const users = await db.select().from(usersTable)
+    res.render('root', {a: 10, x: x++, y: rn(2), users})
   })
   .listen(3000)
