@@ -1,0 +1,26 @@
+@import url('https://pvinis.github.io/iosevka-webfont/3.4.1/iosevka.css');
+@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
+@import url('cyborg.css');
+h1 {
+    font-family: 'Allura';
+    font-size: 50px;
+    padding: 20px 0px 0px 0px;
+    color: yellow;
+}
+body {
+    font-family: 'Allura';
+    font-size: 27px;
+    text-align: center;
+    user-select: none;
+}
+span {
+    font-family: 'Iosevka Web Regular';
+    display: inline-block;
+    font-size: 20px;
+    margin: 0px 10px;
+    color: white;
+}
+p {
+    margin: 0px;
+    padding: 0px;
+}
